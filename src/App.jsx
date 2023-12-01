@@ -7,7 +7,7 @@ import TodoList from "./components/TodoList";
 
 const initialStateTodos = () => {
   let aux = JSON.parse(localStorage.getItem("todos")) || [];
-
+  console.log(aux);
   if (aux.length > 1) {
     aux.sort((a, b) => {
       if (a.completed === b.completed) return 0;
@@ -15,6 +15,7 @@ const initialStateTodos = () => {
       if (!a.completed) return -1;
     });
   }
+  return aux;
 };
 
 const App = () => {
