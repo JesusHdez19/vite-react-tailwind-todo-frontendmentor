@@ -11,8 +11,8 @@ const initialStateTodos = () => {
   if (aux.length > 1) {
     aux.sort((a, b) => {
       if (a.completed === b.completed) return 0;
-      if (a.completed) return -1;
-      if (!a.completed) return 1;
+      if (a.completed) return 1;
+      if (!a.completed) return -1;
     });
   }
 };
