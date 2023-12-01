@@ -5,7 +5,17 @@ import TodoCreate from "./components/TodoCreate";
 import TodoFilter from "./components/TodoFilter";
 import TodoList from "./components/TodoList";
 
-const initialStateTodos = JSON.parse(localStorage.getItem("todos")) || [];
+const initialStateTodos = () => {
+  let aux = JSON.parse(localStorage.getItem("todos")) || [];
+
+  if (aux.length > 1) {
+    aux.sort((a, b) => {
+      if (a.completed === b.completed) return 0;
+      if (a.completed) return -1;
+      if (!a.completed) return 1;
+    });
+  }
+};
 
 const App = () => {
   const [todos, setTodos] = useState(initialStateTodos);
